@@ -17,10 +17,10 @@ A C program that implements steganography techniques to hide files within images
 ├── src/
 │   └── steganography.c    # Main source code
 ├── include/               # Header files and libraries
-├── build/                # Compiled binaries
-├── setup.sh              # Generates Makefile for Linux
-├── run.sh               # Usage helper script
-└── build.bat            # Windows build script
+├── build/                 # Compiled binaries
+├── setup.sh               # Generates Makefile for Linux
+├── run.sh                 # Usage helper script
+└── build.bat              # Windows build script
 ```
 
 ## Building
