@@ -78,7 +78,7 @@ This will display help text with available commands and options.
 
 ## License
 
-[Add your license information here]
+This repository is licensed under the MIT License. See the [MIT License](LICENSE). file for more details.
 
 ## Contributing
 
