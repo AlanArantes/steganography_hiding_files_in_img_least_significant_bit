@@ -1,6 +1,6 @@
 CC=gcc
-CFLAGS=-I./include -Wall -Wextra
-LIBS=-lm
+CFLAGS=-I./include -Wall -Wextra -D_FILE_OFFSET_BITS=64
+LIBS=-lm -lfuse -lpthread
 
 all: build/steganography
 

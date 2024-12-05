@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "*.tsx": "typescriptreact",
+        "*.ts": "typescript",
+        "*.json": "jsonc",
+        "*.js": "javascript",
+        "*.css": "css",
+        "stdlib.h": "c"
+    }
+}
