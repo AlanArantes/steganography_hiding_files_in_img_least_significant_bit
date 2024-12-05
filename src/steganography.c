@@ -835,7 +835,7 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    if (strcmp("hide", argv[1]) == 0)
+    if (strcmp("hide", argv[1]) == 0 || strcmp("-h", argv[1]) == 0)
     {
         if (argc < 3)
         {
@@ -869,7 +869,7 @@ int main(int argc, char *argv[])
         // return 0;
     }
 
-    if (strcmp("extract", argv[1]) == 0)
+    if (strcmp("extract", argv[1]) == 0 || strcmp("-e", argv[1]) == 0)
     {
         if (argc < 3)
         {
@@ -899,7 +899,7 @@ int main(int argc, char *argv[])
         return r;
     }
 
-    if (strcmp("mount", argv[1]) == 0)
+    if (strcmp("mount", argv[1]) == 0 || strcmp("-m", argv[1]) == 0)
     {
         if (argc < 3)
         {

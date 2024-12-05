@@ -1,60 +1,85 @@
-# AI Experiments Repository
+# Steganography File Hiding Tool
 
-Welcome to the **AI Experiments Repository**! This repository is dedicated to housing and documenting various Jupyter notebooks, code scripts, and resources related to machine learning and artificial intelligence experiments.
+A C program that implements steganography techniques to hide files within images using the Least Significant Bit (LSB) method. The tool also supports mounting the image as a filesystem.
 
-## Repository Overview
+## Features
 
-This repository is structured to help you explore, understand, and replicate AI experiments efficiently. It contains:
-- **Jupyter Notebooks**: Step-by-step, well-documented notebooks with code and results from experiments.
-- **Python Scripts**: Reusable code components and modules for conducting various machine learning and deep learning tasks.
-- **Data and Results**: Sample datasets, generated results, and figures that are referenced in experiments.
+- Hide files within images using LSB steganography
+- Extract hidden files from images
+- Mount images as filesystems
+- Cross-platform support (Linux and Windows)
+  _Only for hide and extract actions, no support for mounting file systems on Windows_
 
-The purpose of this repository is to foster learning and allow others to build upon these experiments for research, academic work, or personal projects.
+## Directory Structure
 
-## Repository Structure
+```
+.
+├── src/
+│   └── steganography.c    # Main source code
+├── include/               # Header files and libraries
+├── build/                # Compiled binaries
+├── setup.sh              # Generates Makefile for Linux
+├── run.sh               # Usage helper script
+└── build.bat            # Windows build script
+```
 
-The repository follows an organized structure for easy navigation:
+## Building
 
-````markdown
-/Breadcrumbssteganography_hiding_files_in_img_least_significant_bit
-  ├── experiment_1/
-  │   ├── app.c
-  │   ├── data/
-  │   └── results/
-  │   └── resources/
-  └── README.md
-````
+### Linux
 
-Each experiment folder typically contains:
-- **app.c**: C Program that explains and executes the experiment.
-- **data/**: Folder containing any datasets or data files used in the experiment.
-- **results/**: Folder for storing experiment outputs, including model files, visualizations, and performance metrics.
-- **resources** (optional): Supporting functions, additional resources, helper scripts, or modules for the experiment.
+```bash
+./setup.sh
+make
+```
 
-## Getting Started
+### Windows
 
-1. **Clone the Repository**:
-   ```bash
-   git clone https://github.com/AlanArantes/steganography_hiding_files_in_img_least_significant_bit.git
-   cd steganography_hiding_files_in_img_least_significant_bit
-2. **Run an Experiment**:
-Navigate to an experiment directory and open the notebook in Jupyter:
-   ```bash
-   gcc -o steganography steganography.c -lm
-   ./steganography cover.png secret.txt output
-3. **Customizing and Extending**:
-Feel free to modify the code and add new experiments. Each experiment is self-contained, making it easy to extend and create variations.
+```cmd
+build.bat
+```
 
-## Prerequisites
-Mac or Linux Systems: gcc
-Windows Systems: Visual Studio IDE or Command Line
+## Usage
 
-## Contributing
-Contributions are welcome! Please follow these steps:
+The easiest way to use the program is through the run.sh script:
 
-**Fork the repository.**
-Create a new branch with a descriptive name for your feature or fix.
-Submit a pull request with a clear description of changes.
+```bash
+./run.sh
+```
+
+This will display help text with available commands and options.
+
+### Manual Usage
+
+1. Hide a file in an image:
+
+```bash
+./steganography -h <input_file> <image_file>
+```
+
+2. Extract hidden file from image:
+
+```bash
+./steganography -e <image_file>
+```
+
+3. Mount image as filesystem:
+
+```bash
+./steganography -m <image_file> <mount_point>
+```
+
+## Requirements
+
+- GCC compiler
+- Make build system (Linux)
+- Windows build tools (for Windows)
+- Library Fuse [libfuse](https://github.com/libfuse/libfuse?tab=readme-ov-file)
+  _The easiest way to install it is using the Meson's install steps_
 
 ## License
-This repository is licensed under the MIT License. See the [MIT License](LICENSE). file for more details.
+
+[Add your license information here]
+
+## Contributing
+
+Contributions are welcome. Please fork the repository and submit pull requests with any improvements.

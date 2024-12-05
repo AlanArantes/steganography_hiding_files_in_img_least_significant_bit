@@ -34,7 +34,7 @@ if [ $# -lt 3 ] || [[ "$1" != "hide" && "$1" != "extract" && "$1" != "mount" ]];
   exit 1
 fi
 
-if [[ "$1" == "mount" ]]; then
+if [[ "$1" == "mount" ] || [ "$1" == "-m" ]]; then
   if [[ -f $2 && -d $3 ]]; then
     build/steganography $1 $2 $3 -f -d -s
     exit
@@ -44,6 +44,41 @@ if [[ "$1" == "mount" ]]; then
   echo ""
   echo "  $0 mount image.png /mnt/mydir"
   echo "                     * needs to exist"
+  echo ""
+  echo "Note: Ensure proper permissions and valid paths for all arguments."
+  exit 1
+fi
+
+if [[ "$1" == "hide"] || [ "$1" == "-h" ]]; then
+  if [[ -f $2 && -f $3 ]]; then
+    build/steganography $1 $2 $3
+    exit
+  fi
+  echo "Usage: $0 <command> <arg1> <arg2>"
+  echo ""
+  echo "  $0 hide image.png file.txt"
+  echo ""
+  echo "  hide    Combine an image file with a generic file into one output."
+  echo "           Arguments:"
+  echo "             <arg1> - Path to the image file."
+  echo "             <arg2> - Path to a generic file (executable, image, text, etc.)."
+  echo "Note: Ensure proper permissions and valid paths for all arguments."
+  exit 1
+fi
+
+if [[ "$1" == "extract"] || [ "$1" == "-e" ]]; then
+  if [[ -f $2 && -f $3 ]]; then
+    build/steganography $1 $2 $3
+    exit
+  fi
+  echo "Usage: $0 <command> <arg1> <arg2>"
+  echo ""
+  echo "  $0 extract image.png output.txt"
+  echo ""
+  echo "  extract  Extract a generic file from an image."
+  echo "           Arguments:"
+  echo "             <arg1> - Path to the image file."
+  echo "             <arg2> - Name for the extracted file."
   echo ""
   echo "Note: Ensure proper permissions and valid paths for all arguments."
   exit 1
